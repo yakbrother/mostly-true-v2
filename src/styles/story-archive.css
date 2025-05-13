@@ -1,0 +1,137 @@
+/* Story Archive Styles */
+
+.story-archive {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--s2);
+}
+
+.story-archive h1 {
+  margin-bottom: var(--s3);
+  text-align: center;
+}
+
+.stories-container {
+  width: 100%;
+}
+
+.stories-years-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s4);
+}
+
+.stories-year-section {
+  margin-bottom: var(--s3);
+}
+
+.stories-year-heading {
+  font-size: var(--s2);
+  font-weight: 700;
+  margin-bottom: var(--s1);
+  padding-bottom: var(--s-1);
+  border-bottom: 2px solid var(--color-text-muted);
+}
+
+.story-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: var(--s2);
+  list-style: none;
+  padding: 0;
+}
+
+.story-item {
+  background-color: var(--color-background-muted);
+  border-radius: var(--s-1);
+  overflow: hidden;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  height: 100%;
+}
+
+.story-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.story-link {
+  display: block;
+  height: 100%;
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+.story-item-container {
+  padding: var(--s1);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.story-item-header {
+  margin-bottom: var(--s0);
+}
+
+.story-item-title {
+  font-size: var(--s1);
+  margin-bottom: var(--s-2);
+  color: var(--color-text);
+}
+
+.story-item-date {
+  font-size: var(--s-1);
+  color: var(--color-text-muted);
+  margin-bottom: var(--s0);
+}
+
+.story-item-description {
+  font-size: var(--s0);
+  color: var(--color-text);
+  margin: 0;
+  padding: 0;
+}
+
+/* Animation for the sections */
+.animate {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Add some delay to each section */
+.stories-year-section:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.stories-year-section:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.stories-year-section:nth-child(3) {
+  animation-delay: 0.3s;
+}
+.stories-year-section:nth-child(4) {
+  animation-delay: 0.4s;
+}
+.stories-year-section:nth-child(5) {
+  animation-delay: 0.5s;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .story-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .story-item-title {
+    font-size: var(--s1);
+  }
+}

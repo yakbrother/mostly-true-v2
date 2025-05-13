@@ -1,0 +1,58 @@
+---
+import { type CollectionEntry, getCollection } from "astro:content";
+import MainLayout from "@layouts/MainLayout.astro";
+
+const data = (await getCollection("stories"))
+  .filter((post) => !post.data.draft)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+type Acc = {
+  [year: string]: CollectionEntry<"stories">[];
+};
+
+const posts = data.reduce((acc: Acc, post) => {
+  const year = post.data.date.getFullYear().toString();
+  if (!acc[year]) {
+    acc[year] = [];
+  }
+  acc[year].push(post);
+  return acc;
+}, {});
+
+const years = Object.keys(posts).sort((a, b) => parseInt(b) - parseInt(a));
+---
+
+<MainLayout title="Story Archive" description="A collection of mostly true stories">
+    <div class="story-archive" data-pagefind-ignore>
+      <h1>Story Archive</h1>
+      <div class="stories-container">
+        <div class="stories-years-container">
+          {
+            years.map((year) => (
+              <section class="animate stories-year-section">
+                <div class="stories-year-heading">
+                  {year}
+                </div>
+                <ul class="story-grid">
+                  {posts[year].map((post) => (
+                    <li class="story-item">
+                      <a href={`/${post.collection}/${post.id}`} class="story-link">
+                        <h3 class="story-item-title">{post.data.title}</h3>
+                        <time class="archive-item-date">
+                          {new Date(post.data.date).toLocaleDateString("en-UK", {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric"
+                          })}
+                        </time>
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+</MainLayout>

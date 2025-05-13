@@ -1,0 +1,264 @@
+font-face {
+  font-family: "ia-writer";
+  src:
+    url("/fonts/ia-writer-quattro-latin-400-normal-webfont.woff2")
+      format("woff2"),
+    url("/fonts/ia-writer-quattro-latin-400-normal-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "bygonest-rustic";
+  src:
+    url("/fonts/bygonest_rustic_bold-webfont.woff2") format("woff2"),
+    url("/fonts/bygonest_rustic_bold-webfont.woff") format("woff");
+  font-weight: 600;
+  font-style: normal;
+}
+
+*,
+:after,
+:before {
+  box-sizing: border-box;
+  font-family: inherit;
+  color: inherit;
+  overflow-wrap: break-word;
+  margin: 0;
+  padding: 0;
+  border: 0 solid;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background: none; /* Remove any background from body */
+  min-height: 100vh;
+  justify-content: space-between;
+}
+
+:root {
+  --font-plain: ia-writer, Helvetica Neue, Helvetica, Arial, sans-serif;
+  --font-special: bygonest-rustic, Futura, serif;
+  --font-mono: Menlo, Courier, Courier New, Andale Mono, monospace;
+
+  /* Color palette */
+  --color-background: #a87c7c;
+  --color-background-muted: #ccc;
+  --color-text: #3e3232;
+  --color-text-muted: #49503C3C5057;
+  --color-accent: #85c7f2;
+  --color-link: #dc0073;
+
+  /* Spacing and sizing */
+  --ratio: 1.5;
+  --max-width: 850px;
+  --s-5: clamp(0.33rem, 0.39rem + -0.29vw, 0.18rem);
+  --s-4: clamp(0.41rem, 0.47rem + -0.31vw, 0.25rem);
+  --s-3: clamp(0.51rem, 0.57rem + -0.31vw, 0.35rem);
+  --s-2: clamp(0.64rem, 0.69rem + -0.27vw, 0.5rem);
+  --s-1: clamp(0.8rem, 0.84rem + -0.18vw, 0.71rem);
+  --s0: clamp(1rem, 1rem + 0vw, 1rem);
+  --s1: clamp(1.25rem, 1.19rem + 0.32vw, 1.41rem);
+  --s2: clamp(1.56rem, 1.39rem + 0.85vw, 2rem);
+  --s3: clamp(1.95rem, 1.61rem + 1.7vw, 2.83rem);
+  --s4: clamp(2.44rem, 1.83rem + 3.04vw, 4rem);
+  --s5: clamp(3.05rem, 2.04rem + 5.07vw, 5.65rem);
+
+  --border-thin: var(--s-5);
+  --border-thick: var(--s-2);
+  line-height: var(--ratio);
+  font-size: calc(0.333vw + 1em);
+  font-family: var(--font-plain);
+  background-color: var(--color-background);
+  background-image: url("/noise-light.png");
+  background-repeat: repeat;
+  position: relative;
+  color: var(--color-text);
+  color-scheme: light dark;
+}
+
+/* Class-based dark mode */
+html.dark {
+  --color-text: #dbdbdb;
+  --color-text-muted: #d1d1d1;
+  --color-background-muted: #636363;
+  --color-background: #4c4c4c;
+  --color-accent: #85c7f2;
+  --color-link: #dc0073;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 10rem;
+}
+
+/* Element styles */
+html {
+  font-family: var(--font-plain);
+  overflow-y: auto;
+  color-scheme: light;
+  scroll-padding-top: 100px;
+}
+
+article {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+.footer {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: auto;
+}
+
+p {
+  width: 100%;
+  max-width: 36rem;
+  margin: auto;
+  padding: var(--s2);
+  font-size: var(--s0);
+  line-height: var(--line-height);
+  font-weight: 400;
+  font-style: normal;
+  text-align: left;
+  text-decoration: none;
+}
+
+header {
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 50;
+  background-color: var(--color-background);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-text-muted);
+}
+
+html.dark header {
+  border-bottom: 1px solid var(--color-text-muted);
+}
+
+article {
+  line-height: var(--line-height);
+}
+
+article > * + * {
+  margin-block-start: var(--s2, 1.5rem);
+}
+
+/* Article content styling */
+article p,
+article ul,
+article ol,
+article li,
+article blockquote,
+article pre {
+  font-size: var(--s0);
+  line-height: 1.7;
+}
+
+.stack,
+article {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.stack > * {
+  margin-block: 0;
+}
+
+.stack > * + * {
+  margin-block-start: var(--s2, 1.5rem);
+}
+
+.stack-exception,
+.stack-exception + * {
+  --space: 3rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: var(--line-height-small);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.h1,
+h1 {
+  font-size: var(--s4);
+  font-family: var(--font-special);
+  color: var(--color-accent);
+}
+
+h1 > a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.h2,
+h2 {
+  font-size: var(--s3);
+}
+
+.h3,
+h3 {
+  font-size: var(--s2);
+}
+
+.h4,
+h4 {
+  font-size: var(--s1);
+}
+
+p.intro,
+section.intro {
+  font-size: var(--s0);
+  font-weight: 400;
+  line-height: var(--line-height);
+  font-style: italic;
+  text-align: left;
+  padding: var(--s2);
+  width: 100%;
+  max-width: var(--max-width);
+  border-radius: var(--s1);
+  background-color: var(--color-background-muted);
+  margin: auto;
+}
+
+a {
+  color: var(--color-link);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+
+p.intro > a,
+section.intro > a {
+  text-decoration-style: solid;
+  text-decoration-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+p.intro > a:hover,
+section.intro > a:hover {
+  text-decoration: underline;
+  color: var(--color-link);
+}

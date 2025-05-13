@@ -1,21 +1,72 @@
 ---
 import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
+import Layout from '@layouts/MainLayout.astro';
 import { render } from 'astro:content';
+import BlogPostNavigation from '../../components/BlogPostNavigation.astro';
+import FormattedDate from '../../components/FormattedDate.astro';
 
 export async function getStaticPaths() {
-	const posts = await getCollection('blog');
+	const posts = await getCollection('stories');
 	return posts.map((post) => ({
 		params: { slug: post.id },
 		props: post,
 	}));
 }
-type Props = CollectionEntry<'blog'>;
+type Props = CollectionEntry<'stories'>;
+
+// Get all blog posts for navigation
+const posts = (await getCollection('stories'))
+	.filter((post) => !post.data.draft)
+	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+function getNextPost() {
+  let postIndex;
+  for (const p of posts) {
+    if (p.id === Astro.params.slug) {
+      postIndex = posts.indexOf(p);
+      return posts[postIndex + 1];
+    }
+  }
+}
+
+function getPrevPost() {
+  let postIndex;
+  for (const p of posts) {
+    if (p.id === Astro.params.slug) {
+      postIndex = posts.indexOf(p);
+      return posts[postIndex - 1];
+    }
+  }
+}
+
+const nextPost = getNextPost();
+const prevPost = getPrevPost();
 
 const post = Astro.props;
 const { Content } = await render(post);
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<Layout title={post.data.title} description={post.data.description}>
+	<div class="post">
+		<h1 class="post-title">{post.data.title}</h1>
+		<div class="post-intro">
+			<time class="post-published">
+				<FormattedDate date={post.data.date} />
+			</time>
+		</div>
+
+		<article class="post-content">
+			<Content />
+		</article>
+
+		<div class="blog-navigation">
+			<BlogPostNavigation prevPost={prevPost} nextPost={nextPost} />
+		</div>
+	</div>
+</Layout>
+
+<style>
+	.blog-navigation {
+		margin-top: 2rem;
+	}
+</style>
