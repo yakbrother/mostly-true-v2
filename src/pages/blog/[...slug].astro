@@ -2,7 +2,6 @@
 import { type CollectionEntry, getCollection } from 'astro:content';
 import Layout from '@layouts/MainLayout.astro';
 import { render } from 'astro:content';
-import BlogPostNavigation from '../../components/BlogPostNavigation.astro';
 import FormattedDate from '../../components/FormattedDate.astro';
 
 export async function getStaticPaths() {
@@ -19,28 +18,7 @@ const posts = (await getCollection('stories'))
 	.filter((post) => !post.data.draft)
 	.sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
 
-function getNextPost() {
-  let postIndex;
-  for (const p of posts) {
-    if (p.id === Astro.params.slug) {
-      postIndex = posts.indexOf(p);
-      return posts[postIndex + 1];
-    }
-  }
-}
 
-function getPrevPost() {
-  let postIndex;
-  for (const p of posts) {
-    if (p.id === Astro.params.slug) {
-      postIndex = posts.indexOf(p);
-      return posts[postIndex - 1];
-    }
-  }
-}
-
-const nextPost = getNextPost();
-const prevPost = getPrevPost();
 
 const post = Astro.props;
 const { Content } = await render(post);
@@ -58,10 +36,6 @@ const { Content } = await render(post);
 		<article class="post-content">
 			<Content />
 		</article>
-
-		<div class="blog-navigation">
-			<BlogPostNavigation prevPost={prevPost} nextPost={nextPost} />
-		</div>
 	</div>
 </Layout>
 

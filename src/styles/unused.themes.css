@@ -1,0 +1,119 @@
+Pink-dark :root {
+  --color-background: hsl(333, 8%, 32%);
+  --color-background-alt: hsl(353, 35%, 56%);
+  --color-text: hsl(1, 40%, 83%);
+  --color-text-title: hsl(359, 88%, 97%);
+  --color-text-secondary: #aaa;
+  --color-link: hsl(345, 90%, 57%);
+  --color-accent: hsl(24, 46%, 66%);
+}
+
+pink-light :root {
+  --color-background: hsl(1, 40%, 83%);
+  --color-background-alt: hsl(359, 88%, 97%);
+  --color-text: hsl(333, 8%, 32%);
+  --color-text-title: hsl(345, 90%, 57%);
+  --color-text-secondary: hsl(353, 35%, 56%);
+  --color-link: #hsl(345, 90%, 57%);
+  --color-accent: hsl(24, 46%, 66%);
+}
+
+peach :root {
+  --color-background: hsl(254, 6%, 18%);
+  --color-background-alt: hsl(240, 1%, 31%);
+  --color-text: hsl(0, 0%, 84%);
+  --color-text-title: hsl(0, 0%, 84%);
+  --color-text-secondary: #aaa;
+  --color-link: hsl(347, 65%, 86%);
+  --color-accent: hsl(9, 86%, 72%);
+}
+
+grey :root {
+  --color-background: hsl(9, 86%, 72%);
+  --color-background-alt: #474d5b;
+  --color-text: hsl(0, 0%, 85%);
+  --color-text-title: hsl(359, 100%, 65%);
+  --color-text-secondary: #aaa;
+  --color-link: hsl(359, 100%, 65%);
+  --color-accent: hsl(158, 100%, 65%);
+}
+
+lime :root {
+  --color-background: hsl(168, 100%, 14%);
+  --color-background-alt: hsl(190, 33%, 10%);
+  --color-text: hsl(47, 23%, 80%);
+  --color-text-title: hsl(25, 100%, 50%);
+  --color-text-secondary: hsl(195, 97%, 19%);
+  --color-link: hsl(69, 99%, 48%);
+  --color-accent: hsl(187, 19%, 67%);
+}
+
+thing :root {
+  --color-background: hsl(35, 43%, 78%);
+  --color-background-alt: hsl(183, 55%, 39%);
+  --color-text: hsl(191, 52%, 12%);
+  --color-text-title: hsl(331, 19%, 27%);
+  --color-text-secondary: hsl(0, 0%, 35%);
+  --color-link: #hsl(38, 88%, 50%);
+  --color-accent: hsl(182, 55%, 41%);
+}
+
+red mountain :root {
+  --color-background: hsl(38, 44%, 82%);
+  --color-background-alt: hsl(5, 36%, 70%);
+  --color-text: hsl(179, 7%, 15%);
+  --color-text-title: hsl(356, 85%, 29%);
+  --color-text-secondary: hsl(221, 5%, 30%);
+  --color-link: hsl(4, 84%, 45%);
+  --color-accent: hsl(32, 75%, 60%);
+}
+
+:root {
+  --color-background: #272b34;
+  --color-background-alt: #474d5b;
+  --color-text: #b5b5b5;
+  --color-text-title: #ccc;
+  --color-text-secondary: #aaa;
+  --color-link: #1aa7c7;
+  --color-accent: #cc1e4a;
+}
+
+:root {
+  --color-background: #272b34;
+  --color-background-alt: #474d5b;
+  --color-text: #b5b5b5;
+  --color-text-title: #ccc;
+  --color-text-secondary: #aaa;
+  --color-link: #1aa7c7;
+  --color-accent: #cc1e4a;
+}
+
+:root {
+  --color-background: hsl(0, 0%, 83%);
+  --color-background-alt: hsl(0, 0%, 66%);
+  --color-text: hsl(0, 0%, 29%);
+  --color-text-title: hsl(340, 55%, 56%);
+  --color-text-secondary: hsl(0, 0%, 21%);
+  --color-link: hsl(339, 84%, 50%);
+  --color-accent: hsl(154, 40%, 77%);
+}
+
+Orange/Red/Blue :root {
+  --color-background: hsl(60, 30%, 89%);
+  --color-background-alt: hsl(60, 28%, 95%);
+  --color-text: hsl(4, 30%, 16%);
+  --color-text-title: hsl(42, 76%, 50%);
+  --color-text-secondary: hsl(1, 38%, 33%);
+  --color-link: hsl(12, 100%, 61%);
+  --color-accent: hsl(182, 30%, 71%);
+}
+
+:root {
+  --color-background: #272b34;
+  --color-background-alt: #474d5b;
+  --color-text: #b5b5b5;
+  --color-text-title: #ccc;
+  --color-text-secondary: #aaa;
+  --color-link: #1aa7c7;
+  --color-accent: #cc1e4a;
+}
