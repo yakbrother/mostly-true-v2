@@ -4,17 +4,18 @@ const today = new Date();
 
 <footer>
 	<div class="footer-content">
-		<p>&copy; {today.getFullYear()} Copyright &copy; 2025 Virgil Eaton.</p>
+		<p>Copyright &copy; {today.getFullYear()} Virgil Eaton.</p>
 		<p>All rights reserved.</p>
 	</div>
 </footer>
 <style>
 	footer {
+		border-top: 3rem solid var(--color-background-alt);
 		padding: 2rem 1rem;
 		background-color: var(--color-footer);
 		color: var(--color-text-footer);
 		text-align: center;
-		margin-top: 3rem;
+		margin: 0;
 	}
 	
 	.footer-content {
@@ -28,7 +29,6 @@ const today = new Date();
 	
 	p {
 		margin: 0;
-		font-size: 0.9rem;
 		color: var(--color-footer-text);
 	}
 </style>

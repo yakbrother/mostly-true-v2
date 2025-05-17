@@ -21,27 +21,33 @@
 }
 
 @font-face {
-  font-family: "ia-writer";
+  font-family: "Epilogue";
   src:
-    url("/fonts/ia-writer-quattro-latin-400-normal-webfont.woff2")
+    url("/fonts/epilogue-webfont.woff2")
       format("woff2"),
-    url("/fonts/ia-writer-quattro-latin-400-normal-webfont.woff") format("woff");
+    url("/fonts/epilogue-webfont.woff") format("woff");
   font-weight: 400;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Inabitavel";
-  src:
-    url("/fonts/Inabitavel-Typewriter.woff2") format("woff2"),
-    url("/fonts/Inabitavel-Typewriter.woff") format("woff");
-  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
 
-main {
-  padding: 1em;
+@font-face {
+  font-family: "Epilogue";
+  src:
+    url("/fonts/epilogue-italic-webfont.woff2")
+      format("woff2"),
+    url("/fonts/epilogue-italic-webfont.woff") format("woff");
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cartridge";
+  src: url("/fonts/Cartridge-Semibold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
 }
 
 body > header,
@@ -72,20 +78,43 @@ body > header {
   margin-bottom: var(--spacing-xxl);
 }
 
+header,
+main,
+article.post,
+footer {
+  margin: 0;
+  max-width: inherit;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+main,
+article.post {
+  margin-left: clamp(0.5rem, 5%, 3rem);
+}
+
+main {
+  margin-right: 0.5em;
+}
+
+article.post {
+  text-wrap: pretty;
+}
+
 section {
   margin-bottom: var(--spacing-xl);
 }
 
 :root {
-  --color-background: hsl(333, 8%, 32%);
-  --color-background-alt: hsl(353, 35%, 56%);
-  --color-text: hsl(1, 40%, 83%);
-  --color-text-title: hsl(359, 88%, 97%);
-  --color-text-secondary: #aaa;
+  --color-background: #55423d;
+  --color-background-alt: #38342f;
+  --color-text: #96f5f9;
+  --color-text-title: #deb888;
+  --color-text-secondary: #717171;
   --color-link: hsl(345, 90%, 57%);
-  --color-accent: hsl(24, 46%, 66%);
-  --font-family: ia-writer, serif;
-  --font-display: Inabitavel, serif;
+  --color-accent: A64E90;
+  --font-family: Epilogue, serif;
+  --font-display: Cartridge, sans-serif;
   --font-size: 18px;
   --font-height: 24px;
   --font-weight: 400;
@@ -162,15 +191,23 @@ h3 {
 }
 
 .typewriter-logo {
-  width: 40px;
-  height: 40px;
+  width: 80px;
+  height: 80px;
+  color: var(--color-text);
   margin-bottom: 0.5rem;
 }
 
 .typewriter-logo img {
   width: 100%;
   height: 100%;
-  color: var(--color-text-title);
+  color: var(--color-text);
+}
+
+/* Override SVG fill colors */
+.typewriter-logo svg path,
+.typewriter-logo svg polygon,
+.typewriter-logo svg g {
+  fill: var(--color-text) !important;
 }
 
 a {
