@@ -41,9 +41,9 @@
 }
 
 @font-face {
-  font-family: "Cartridge";
-  src: url("/fonts/Cartridge-Semibold.woff2") format("woff2");
-  font-weight: 600;
+  font-family: "Ulisson";
+  src: url("/fonts/ulisson-webfont.woff2") format("woff2");
+  font-weight: normal;
   font-style: normal;
   font-display: swap;
 }
@@ -107,11 +107,12 @@ section {
   --color-background: #55423d;
   --color-background-alt: #38342f;
   --color-background-muted: rgba(83, 66, 61, 0.7);
-  --background-overlay: url('/assets/black-linen.png');
+  --background-overlay: url("/assets/black-linen.png");
   --color-text: #6da7ac;
   --color-text-title: #029e92;
   --color-text-secondary: #7e999b;
-  --color-link: #cb451f;
+  --color-link: #9656a1;
+  --color-link-hover: #dcadcf;
   --color-accent: #9656a1;
   --color-border: #fdd69f;
   --font-family: Epilogue, serif;
@@ -132,7 +133,7 @@ section {
   --spacing-xl: calc(2.5 * var(--spacing));
   --spacing-xxl: calc(5 * var(--spacing));
   --spacing-col: calc(6 * var(--spacing));
-  --spacing-width-max: 38rem;
+  --spacing-width-max: 48rem;
   --spacing-width-tiny: 15rem;
   --spacing-width-xl: 50rem;
 }
@@ -821,7 +822,9 @@ figcaption {
   background: var(--color-background-alt);
   padding: 0.25rem 0.75rem;
   border-radius: 3px;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .tag-item:hover {
@@ -829,10 +832,7 @@ figcaption {
   color: var(--color-background);
 }
 
-.tag-item:hover .tag-count {
-  background: var(--color-background);
-  color: var(--color-link);
-}
+/* Tag count styling remains consistent on hover */
 
 .tag-count {
   position: absolute;
@@ -849,5 +849,7 @@ figcaption {
   border-radius: 50%;
   padding: 0 0.25rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 }

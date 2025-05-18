@@ -35,7 +35,6 @@ const sortedTags = Object.entries(tagCounts)
 <Layout title={SITE_TITLE} description={SITE_DESCRIPTION}>
 
   <div class="post">
-    <h1 class="post-title">About</h1>
     <div class="post-intro">
       <p><em>Bienvenue, mes amis! I've always loved writing, and traveling, and talking
             to people of all walks of life. I realized I had many stories that I've
@@ -58,6 +57,7 @@ const sortedTags = Object.entries(tagCounts)
                     <div class="story-header">
                       <h3 class="story-title">{post.data.title}</h3>
                       <div class="story-line"></div>
+
                       <time class="story-date">
                         {new Date(post.data.date).toLocaleDateString(
                           "en-UK",
@@ -134,7 +134,9 @@ const sortedTags = Object.entries(tagCounts)
       align-items: center;
       width: 100%;
       margin-bottom: var(--s0);
-    }
+      border-bottom: 1px solid var(--color-text-muted); 
+      padding-bottom: var(--s-1);
+    }                                                                                                                                                                 
 
     .story-title {
       font-size: var(--s1);
@@ -160,6 +162,7 @@ const sortedTags = Object.entries(tagCounts)
       font-size: var(--s0);
       color: var(--color-text-alt);
       margin: 0;
+      padding-top: var(--s1);
       padding-left: var(--s1);
     }
 

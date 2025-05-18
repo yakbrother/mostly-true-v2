@@ -1,62 +1,102 @@
 ---
 import { SITE_TITLE } from '../consts';
+import Logo from '@public/images/typewriter.svg'
 ---
 
   <header class="header">
 	<div class="contained">
 		<h1 class="header-title">
 			<a class="header-home-link" href="">
-				<div class="typewriter-logo">
-					
+				<div class="header-logo-container">
+					<div class="typewriter-logo">
+						<Logo width={80} height={80} fill="currentColor" />
+					</div>
+					<div class="title-container">
+						<span class="site-title">{SITE_TITLE}</span>
+						<span class="site-subtitle">from Virgil (Tim) Eaton</span>
+					</div>
 				</div>
-				{SITE_TITLE}
 			</a>
 		</h1>
 		<nav class="menu main-menu">
 			<a class="menu-item menu-item-current" href="/about">About</a>
-			<a class="menu-item" href="/email">EMAIL</a>
 			<a class="menu-item" href="/stories">Stories</a>
+			<a class="menu-item" href="mailto:virgil@mostlytrue.life">EMAIL</a>
+			<a class="menu-item" href="/rss">RSS</a>
 		</nav>
 	</div>
 </header>
 
 
 <style>
+
+	nav {
+		display: flex-wrap;
+		justify-content: space-between;
+		align-items: center;
+		gap: 1rem;
+	}
+
 	header {
 		text-transform: uppercase;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;	
 	}
-	a {
-		display: inline-block;
-	}
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
-	}
+
 	a {
 		display: inline-block;
 		text-decoration: none;
 	}
 
-	.typewriter-logo {
-		width: 80px;
-		height: 80px;
-		margin-bottom: 0.5rem;
+	a.active {
+		font-weight: bolder;
+		text-decoration: underline;
 	}
 
-	.typewriter-logo svg {
+	.header-logo-container {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+	}
+
+	.typewriter-logo {
+		width: 50px;
+		height: 50px;
+	}
+
+	.typewriter-logo img {
 		width: 100%;
 		height: 100%;
 	}
 
-	.typewriter-logo svg path {
-		fill: var(--color-text);
-		transition: fill 0.3s ease;
+	.title-container {
+		display: flex;
+		flex-direction: column;
 	}
 
-	.header-home-link:hover .typewriter-logo svg path {
-		fill: var(--color-link);
+	.site-title {
+		font-family: 'Ulisson', var(--font-display);
+		font-size: 1.5rem;
+		color: var(--color-text);
+		transition: color 0.3s ease;
+		line-height: 1.2;
+		font-display: swap;
+	}
+
+	.site-subtitle {
+		font-size: 0.8rem;
+		color: var(--color-text-secondary);
+		transition: color 0.3s ease;
+		text-transform: none;
+		font-style: italic;
+	}
+
+	.header-home-link:hover .site-title {
+		color: var(--color-link);
+	}
+
+	.header-home-link:hover .site-subtitle {
+		color: var(--color-link);
 	}
 </style>

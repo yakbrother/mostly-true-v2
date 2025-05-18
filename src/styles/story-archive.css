@@ -64,8 +64,7 @@
   text-decoration: none;
   color: var(--color-text);
 }
-
-.story-item-container {
+xw .story-item-container {
   padding: var(--s1);
   height: 100%;
   display: flex;
@@ -90,7 +89,7 @@
 
 .story-item-description {
   font-size: var(--s0);
-  color: var(--color-text);
+  color: var(--color-text-secondary);
   margin: 0;
   padding: 0;
 }
