@@ -50,22 +50,28 @@ const sortedTags = Object.entries(tagCounts)
   <section class="home-section">
     <h2 class="home-section-title">Latest stories</h2>
 
-          <div class="story-grid">
+          <div class="story-list">
             {
               stories.map((post) => (
-                <div class="story-item">
+                <div class="story-chapter">
                   <a href={`/${post.collection}/${post.id}`} class="story-link">
-                      <h3 class="story-item-title">{post.data.title}</h3>
-                      <time class="archive-item-date">
-                      {new Date(post.data.date).toLocaleDateString(
-                        "en-UK",
-                        {
-                          month: "short",
-                          day: "numeric",
-                          year: "numeric",
-                        },
-                      )}
+                    <div class="story-header">
+                      <h3 class="story-title">{post.data.title}</h3>
+                      <div class="story-line"></div>
+                      <time class="story-date">
+                        {new Date(post.data.date).toLocaleDateString(
+                          "en-UK",
+                          {
+                            month: "short",
+                            day: "numeric",
+                            year: "numeric",
+                          },
+                        )}
                       </time>
+                    </div>
+                    {post.data.description && (
+                      <p class="story-description">{post.data.description}</p>
+                    )}
                   </a>
                 </div>
               ))
@@ -100,6 +106,83 @@ const sortedTags = Object.entries(tagCounts)
     </div>
 
   <style>
+    .story-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--s2);
+    }
 
+    .story-chapter {
+      width: 100%;
+    }
+
+    .story-link {
+      display: block;
+      text-decoration: none;
+      color: var(--color-text);
+      padding: var(--s1);
+      border-radius: var(--s-1);
+      transition: background-color 0.2s ease;
+    }
+
+    .story-link:hover {
+      background-color: var(--color-background-muted);
+    }
+
+    .story-header {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      margin-bottom: var(--s0);
+    }
+
+    .story-title {
+      font-size: var(--s1);
+      margin: 0;
+      padding-right: var(--s1);
+      white-space: nowrap;
+    }
+
+    .story-line {
+      flex-grow: 1;
+      height: 1px;
+      border-top: 1px dashed var(--color-text-muted);
+      margin: 0 var(--s0);
+    }
+
+    .story-date {
+      font-size: var(--s-1);
+      color: var(--color-text-muted);
+      white-space: nowrap;
+    }
+
+    .story-description {
+      font-size: var(--s0);
+      color: var(--color-text-alt);
+      margin: 0;
+      padding-left: var(--s1);
+    }
+
+    @media (max-width: 768px) {
+      .story-header {
+        flex-wrap: wrap;
+      }
+      
+      .story-title {
+        width: 100%;
+        white-space: normal;
+        padding-right: 0;
+        margin-bottom: var(--s-2);
+      }
+      
+      .story-line {
+        order: 2;
+        flex-grow: 1;
+      }
+      
+      .story-date {
+        order: 3;
+      }
+    }
   </style>
 </Layout>

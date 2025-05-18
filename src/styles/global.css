@@ -23,8 +23,7 @@
 @font-face {
   font-family: "Epilogue";
   src:
-    url("/fonts/epilogue-webfont.woff2")
-      format("woff2"),
+    url("/fonts/epilogue-webfont.woff2") format("woff2"),
     url("/fonts/epilogue-webfont.woff") format("woff");
   font-weight: 400;
   font-style: normal;
@@ -34,8 +33,7 @@
 @font-face {
   font-family: "Epilogue";
   src:
-    url("/fonts/epilogue-italic-webfont.woff2")
-      format("woff2"),
+    url("/fonts/epilogue-italic-webfont.woff2") format("woff2"),
     url("/fonts/epilogue-italic-webfont.woff") format("woff");
   font-weight: 400;
   font-style: italic;
@@ -87,9 +85,9 @@ footer {
   padding-left: 0;
   padding-right: 0;
 }
-
 main,
-article.post {
+article.post,
+.contained {
   margin-left: clamp(0.5rem, 5%, 3rem);
 }
 
@@ -108,14 +106,17 @@ section {
 :root {
   --color-background: #55423d;
   --color-background-alt: #38342f;
-  --color-text: #96f5f9;
-  --color-text-title: #deb888;
-  --color-text-secondary: #717171;
-  --color-link: hsl(345, 90%, 57%);
-  --color-accent: A64E90;
+  --color-background-muted: rgba(83, 66, 61, 0.7);
+  --background-overlay: url('/assets/black-linen.png');
+  --color-text: #6da7ac;
+  --color-text-title: #029e92;
+  --color-text-secondary: #7e999b;
+  --color-link: #cb451f;
+  --color-accent: #9656a1;
+  --color-border: #fdd69f;
   --font-family: Epilogue, serif;
   --font-display: Cartridge, sans-serif;
-  --font-size: 18px;
+  --font-size: 16px;
   --font-height: 24px;
   --font-weight: 400;
   --type-s: calc(var(--font-size) * 0.833);
@@ -140,7 +141,6 @@ html {
   font-size: var(--font-height);
   font-family: var(--font-family);
   font-weight: var(--font-weight);
-  background: var(--color-background);
   color: var(--color-text);
 }
 
@@ -148,15 +148,19 @@ body {
   font-size: var(--font-size);
   line-height: var(--font-height);
   font-family: var(--font-family);
+  font-weight: var(--font-weight);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  background-image: var(--background-overlay);
+  background-blend-mode: overlay;
+  margin: 0;
+  padding: 0;
+  position: relative;
 }
 
 ::selection {
   background: var(--color-link);
-  color: var(--color-bg);
-}
-
-body {
-  position: relative;
+  color: var(--color-background);
 }
 
 h1 {
@@ -812,29 +816,38 @@ figcaption {
 }
 
 .tag-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  display: block;
+  position: relative;
   background: var(--color-background-alt);
   padding: 0.25rem 0.75rem;
   border-radius: 3px;
-  transition-property: background-color, color;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .tag-item:hover {
   background: var(--color-link);
-  color: var(--color-bg);
+  color: var(--color-background);
+}
+
+.tag-item:hover .tag-count {
+  background: var(--color-background);
+  color: var(--color-link);
 }
 
 .tag-count {
-  display: inline-flex;
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--color-bg);
-  color: var(--color-text-secondary);
-  font-size: 0.8em;
+  background: var(--color-link);
+  color: var(--color-background);
+  font-size: 0.7em;
   min-width: 1.5em;
   height: 1.5em;
   border-radius: 50%;
   padding: 0 0.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.2s ease, color 0.2s ease;
 }

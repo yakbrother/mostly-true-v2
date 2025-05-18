@@ -43,13 +43,14 @@
 }
 
 .story-item {
-  background-color: var(--color-background-muted);
+  background-color: var(--color-accent);
   border-radius: var(--s-1);
   overflow: hidden;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
   height: 100%;
+  margin-bottom: var(--s2);
 }
 
 .story-item:hover {
@@ -123,15 +124,4 @@
 }
 .stories-year-section:nth-child(5) {
   animation-delay: 0.5s;
-}
-
-/* Responsive adjustments */
-@media (max-width: 768px) {
-  .story-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .story-item-title {
-    font-size: var(--s1);
-  }
 }
