@@ -4,9 +4,8 @@ import Logo from '@public/images/typewriter.svg'
 ---
 
   <header class="header">
-	<div class="contained">
 		<h1 class="header-title">
-			<a class="header-home-link" href="">
+			<a class="header-home-link" href="/">
 				<div class="header-logo-container">
 					<div class="typewriter-logo">
 						<Logo width={80} height={80} fill="currentColor" />
@@ -18,40 +17,42 @@ import Logo from '@public/images/typewriter.svg'
 				</div>
 			</a>
 		</h1>
-		<nav class="menu main-menu">
-			<a class="menu-item menu-item-current" href="/about">About</a>
-			<a class="menu-item" href="/stories">Stories</a>
-			<a class="menu-item" href="mailto:virgil@mostlytrue.life">EMAIL</a>
-			<a class="menu-item" href="/rss">RSS</a>
-		</nav>
-	</div>
 </header>
+
+<nav class="menu main-menu">
+	<a class="menu-item menu-item-current" href="/about">About</a>
+	<a class="menu-item" href="/stories">Stories</a>
+	<a class="menu-item" href="mailto:virgil@mostlytrue.life">Email</a>
+	<a class="menu-item" href="/rss">RSS</a>
+</nav>
+
 
 
 <style>
 
+	header {
+		font-family: var(--font-display);
+		color: var(--color-text-title);
+		transition: color 0.4s ease;
+		font-display: swap;
+	}
+
 	nav {
 		display: flex-wrap;
+		font-size: 1.2rem;
 		justify-content: space-between;
-		align-items: center;
-		gap: 1rem;
+		text-transform: lowercase;
+		font-family: var(--font-display);
 	}
+
 
 	header {
 		text-transform: uppercase;
-		display: flex;
-		justify-content: space-between;
-		align-items: center;	
 	}
 
 	a {
 		display: inline-block;
 		text-decoration: none;
-	}
-
-	a.active {
-		font-weight: bolder;
-		text-decoration: underline;
 	}
 
 	.header-logo-container {
@@ -61,8 +62,8 @@ import Logo from '@public/images/typewriter.svg'
 	}
 
 	.typewriter-logo {
-		width: 50px;
-		height: 50px;
+		width: 80px;
+		height: 80px;
 	}
 
 	.typewriter-logo img {
@@ -76,8 +77,8 @@ import Logo from '@public/images/typewriter.svg'
 	}
 
 	.site-title {
-		font-family: 'Ulisson', var(--font-display);
-		font-size: 1.5rem;
+		font-family: var(--font-display);
+		font-size: 3rem;
 		color: var(--color-text);
 		transition: color 0.3s ease;
 		line-height: 1.2;
@@ -85,11 +86,14 @@ import Logo from '@public/images/typewriter.svg'
 	}
 
 	.site-subtitle {
+		font-family: var(--font-display);
 		font-size: 0.8rem;
+		letter-spacing: 2px;
 		color: var(--color-text-secondary);
 		transition: color 0.3s ease;
 		text-transform: none;
 		font-style: italic;
+		
 	}
 
 	.header-home-link:hover .site-title {

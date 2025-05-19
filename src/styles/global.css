@@ -85,10 +85,14 @@ footer {
   padding-left: 0;
   padding-right: 0;
 }
+
+header,
+nav,
 main,
 article.post,
 .contained {
   margin-left: clamp(0.5rem, 5%, 3rem);
+  max-width: var(--spacing-width-max);
 }
 
 main {
@@ -115,8 +119,8 @@ section {
   --color-link-hover: #dcadcf;
   --color-accent: #9656a1;
   --color-border: #fdd69f;
-  --font-family: Epilogue, serif;
-  --font-display: Cartridge, sans-serif;
+  --font-plain: Epilogue, serif;
+  --font-display: Ulisson, sans-serif;
   --font-size: 16px;
   --font-height: 24px;
   --font-weight: 400;
@@ -140,7 +144,7 @@ section {
 
 html {
   font-size: var(--font-height);
-  font-family: var(--font-family);
+  font-family: var(--font-plain);
   font-weight: var(--font-weight);
   color: var(--color-text);
 }
@@ -148,7 +152,7 @@ html {
 body {
   font-size: var(--font-size);
   line-height: var(--font-height);
-  font-family: var(--font-family);
+  font-family: var(--font-plain);
   font-weight: var(--font-weight);
   color: var(--color-text);
   background-color: var(--color-background);
@@ -226,7 +230,7 @@ a {
 }
 
 a:hover {
-  transition: color 0.2s ease-in;
+  transition: color 0.4s ease-in;
   color: var(--color-text);
   background-size: 100%;
 }
@@ -727,7 +731,6 @@ figcaption {
 }
 
 .stories-container {
-  max-width: 35rem;
   margin: 0;
 }
 

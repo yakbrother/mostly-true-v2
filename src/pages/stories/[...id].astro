@@ -1,6 +1,6 @@
 ---
 import { type CollectionEntry, getCollection, render } from "astro:content";
-import Layout from "@layouts/MainLayout.astro";
+import MainLayout from "@layouts/MainLayout.astro";
 import FormattedDate from "@components/FormattedDate.astro";
 import BackToPrevious from "@components/BackToPrevious.astro";
 
@@ -24,39 +24,33 @@ const posts = (await getCollection("stories"))
 
 const post = Astro.props;
 const { Content } = await render(post);
+
 ---
 
-<Layout title={post.data.title} description={post.data.description}>
-    <div class="animate">
-      <BackToPrevious href="/stories">Back to stories</BackToPrevious>
-    </div>
-    <div class="story-header">
-      <div class="animate story-meta">
+<MainLayout title={post.data.title} description={post.data.description}>
+
+      
+  <BackToPrevious href="/stories">Back to stories</BackToPrevious>
+  
+    <article>
+      <header>
         <div class="story-date">
           <FormattedDate date={post.data.date} />
         </div>
-        &bull;
-      </div>
-      <h1 class="animate story-title">
-        {post.data.title}
-      </h1>
-      {
-        post.data.tags && post.data.tags?.length > 0 ? (
-          <div class="animate story-tags">
-            {post.data.tags.map((tag) => (
-              <a
-                href={`/tags/${tag}`}
-                class="story-tag"
-              >
-                {tag}
-              </a>
-            ))}
-          </div>
-        ) : null
-      }
-    </div>
-    <article class="animate">
+        <h1>{post.data.title}</h1>
+    
+          {
+            post.data.tags && post.data.tags?.length > 0 ? (
+              <div class="tags-grid">
+                {post.data.tags.map((tag) => (
+                  <a href={`/tags/${tag}`} class="tag-item">
+                    <span class="tag-name">{tag}</span>
+                  </a>
+                ))}
+              </div>
+            ) : null
+          }
+      </header>
       <Content />
-
     </article>
-</Layout>
+</MainLayout>
