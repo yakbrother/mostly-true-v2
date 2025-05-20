@@ -3,6 +3,7 @@ import { SITE_TITLE } from '../consts';
 import Logo from '@public/images/typewriter.svg'
 ---
 
+
   <header class="header">
 		<h1 class="header-title">
 			<a class="header-home-link" href="/">
@@ -19,28 +20,35 @@ import Logo from '@public/images/typewriter.svg'
 		</h1>
 </header>
 
-<nav class="menu main-menu">
-	<a class="menu-item menu-item-current" href="/about">About</a>
-	<a class="menu-item" href="/stories">Stories</a>
-	<a class="menu-item" href="mailto:virgil@mostlytrue.life">Email</a>
-	<a class="menu-item" href="/rss">RSS</a>
-</nav>
+  <nav class="menu main-menu">
+	  <a class="menu-item menu-item-current" href="/about">About</a>
+	  <a class="menu-item" href="/stories">Stories</a>
+	  <a class="menu-item" href="mailto:virgil@mostlytrue.life">Email</a>
+	  <a class="menu-item" href="/rss">RSS</a>
+  </nav>
+
 
 
 
 <style>
+
 
 	header {
 		font-family: var(--font-display);
 		color: var(--color-text-title);
 		transition: color 0.4s ease;
 		font-display: swap;
+		text-align: left;
+		width: 100%;
 	}
 
 	nav {
-		display: flex-wrap;
+		max-width: var(--spacing-width-max);
 		font-size: 1.2rem;
-		justify-content: space-between;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		gap: 2rem;
 		text-transform: lowercase;
 		font-family: var(--font-display);
 	}
@@ -50,8 +58,9 @@ import Logo from '@public/images/typewriter.svg'
 		text-transform: uppercase;
 	}
 
-	a {
+	nav>a:not(:first-child) {
 		display: inline-block;
+		margin-left: var(--spacing-m);
 		text-decoration: none;
 	}
 
@@ -59,6 +68,7 @@ import Logo from '@public/images/typewriter.svg'
 		display: flex;
 		align-items: center;
 		gap: 1rem;
+		justify-content: flex-start;
 	}
 
 	.typewriter-logo {

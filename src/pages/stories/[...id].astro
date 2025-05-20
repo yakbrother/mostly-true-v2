@@ -28,11 +28,10 @@ const { Content } = await render(post);
 ---
 
 <MainLayout title={post.data.title} description={post.data.description}>
-
-      
-  <BackToPrevious href="/stories">Back to stories</BackToPrevious>
-  
-    <article>
+  <div class="story-container contained">
+    <BackToPrevious href="/stories">Back to stories</BackToPrevious>
+    
+    <article class="story-article">
       <header>
         <div class="story-date">
           <FormattedDate date={post.data.date} />
@@ -51,6 +50,24 @@ const { Content } = await render(post);
             ) : null
           }
       </header>
-      <Content />
+      <div class="story-content">
+        <Content />
+      </div>
     </article>
+  </div>
 </MainLayout>
+
+<style>
+  .story-container {
+    width: 100%;
+  }
+
+  .story-article {
+    width: 100%;
+  }
+
+  .story-content {
+    width: 100%;
+    text-wrap: pretty;
+  }
+</style>

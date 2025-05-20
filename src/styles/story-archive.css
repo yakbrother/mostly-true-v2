@@ -2,13 +2,13 @@
 
 .story-archive {
   width: 100%;
-  max-width: var(--max-width);
+  max-width: var(--spacing-width-max);
   margin: 0 auto;
-  padding: var(--s2);
+  padding: var(--spacing-m);
 }
 
 .story-archive h1 {
-  margin-bottom: var(--s3);
+  margin-bottom: var(--spacing-m);
   text-align: center;
 }
 
@@ -19,38 +19,37 @@
 .stories-years-container {
   display: flex;
   flex-direction: column;
-  gap: var(--s4);
+  gap: var(--spacing-m);
 }
 
 .stories-year-section {
-  margin-bottom: var(--s3);
+  margin-bottom: var(--spacing-l);
 }
 
 .stories-year-heading {
-  font-size: var(--s2);
+  font-size: var(--type-l);
   font-weight: 700;
-  margin-bottom: var(--s1);
-  padding-bottom: var(--s-1);
+  margin-bottom: var(--spacing-m);
+  padding-bottom: var(--spacing-m);
   border-bottom: 2px solid var(--color-text-muted);
 }
 
 .story-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: var(--s2);
+  gap: var(--spacing-m);
   list-style: none;
   padding: 0;
 }
 
 .story-item {
   background-color: var(--color-accent);
-  border-radius: var(--s-1);
   overflow: hidden;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
   height: 100%;
-  margin-bottom: var(--s2);
+  margin-bottom: var(--spacer-small);
 }
 
 .story-item:hover {
@@ -65,30 +64,30 @@
   color: var(--color-text);
 }
 xw .story-item-container {
-  padding: var(--s1);
+  padding: var(--spacing-m);
   height: 100%;
   display: flex;
   flex-direction: column;
 }
 
 .story-item-header {
-  margin-bottom: var(--s0);
+  margin-bottom: var(--spacing-s);
 }
 
 .story-item-title {
-  font-size: var(--s1);
-  margin-bottom: var(--s-2);
+  font-size: var(--type-l);
+  margin-bottom: var(--spacing-s);
   color: var(--color-text);
 }
 
 .story-item-date {
-  font-size: var(--s-1);
+  font-size: var(--type-l);
   color: var(--color-text-muted);
-  margin-bottom: var(--s0);
+  margin-bottom: var(--spacing-m);
 }
 
 .story-item-description {
-  font-size: var(--s0);
+  font-size: 80;
   color: var(--color-text-secondary);
   margin: 0;
   padding: 0;
