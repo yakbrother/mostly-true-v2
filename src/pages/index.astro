@@ -36,13 +36,13 @@ const sortedTags = Object.entries(tagCounts)
 
   <div class="post">
     <div class="post-intro">
-      <p><em>Bienvenue, mes amis! I've always loved writing, and traveling, and talking
+      <p>Bienvenue, mes amis! I've always loved writing, and traveling, and talking
             to people of all walks of life. I realized I had many stories that I've
             polished over the years, and decided to write them down. My memory may
             be hazy, and I've changed some names and places for privacy reasons,
             but I promise they're Mostly True. As true as the size of the fish I
             caught last week.
-            </em></p>
+          </p>
     </div>
 
 
@@ -52,13 +52,10 @@ const sortedTags = Object.entries(tagCounts)
           <div class="story-list">
             {
               stories.map((post) => (
-                <div class="story-chapter">
-                  <a href={`/${post.collection}/${post.id}`} class="story-link">
-                    <div class="story-header">
-                      <h3 class="story-title">{post.data.title}</h3>
-                      <div class="story-line"></div>
-
-                      <time class="story-date">
+                <div class="story-card">
+                  <a href={`/${post.collection}/${post.id}`}>
+                  <h3>{post.data.title}</h3>
+                      <time>
                         {new Date(post.data.date).toLocaleDateString(
                           "en-UK",
                           {
@@ -68,11 +65,11 @@ const sortedTags = Object.entries(tagCounts)
                           },
                         )}
                       </time>
-                    </div>
+                  </a>
+
                     {post.data.description && (
                       <p class="story-description">{post.data.description}</p>
                     )}
-                  </a>
                 </div>
               ))
             }
@@ -95,76 +92,75 @@ const sortedTags = Object.entries(tagCounts)
 
     <section class="home-section">
       <h2 class="home-section-title">Let's Connect</h2>
-
         <p>
           If you want to get in touch with me about something, tell a story, or just to say
-          hi, reach out on social media or send me an email! I'm near
-          Geneva, Switzerland, mostly these days if a coffee or a beer is more your style.
+          hi, reach out on via email! I'm near
+          Geneva, Switzerland, if a coffee or beer is more your style.
         </p>
     </section>
 
     </div>
 
   <style>
+    .home-section-title {
+      font-size: var(--type-xl);
+      text-transform: uppercase;
+      padding-top: var(--spacing-m);
+    }
     .story-list {
       display: flex;
       flex-direction: column;
-      gap: var(--s2);
+      gap: var(--spacing-s);
     }
 
-    .story-chapter {
+    .story-card {
       width: 100%;
     }
 
-    .story-link {
+    .story-card a {
       display: block;
       text-decoration: none;
-      color: var(--color-text);
-      padding: var(--s1);
-      border-radius: var(--s-1);
+      border-bottom: 1px dashed var(--color-accent);
+      color: var(--color-link);
+      padding: 0;
       transition: background-color 0.2s ease;
     }
 
-    .story-link:hover {
+    .story-card a:hover {
+      color: var(--color-link-hover);
       background-color: var(--color-background-muted);
     }
 
-    .story-header {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      margin-bottom: var(--s0);
-      border-bottom: 1px solid var(--color-text-muted); 
-      padding-bottom: var(--s-1);
-    }                                                                                                                                                                 
+                                                            
 
-    .story-title {
-      font-size: var(--s1);
+    .story-card h3 {
+      width: 100%;
+      padding-bottom: 0;
+      font-size: var(--type-m);
+      font-family: var(--font-plain);
+      font-weight: bold;
       margin: 0;
-      padding-right: var(--s1);
+      padding-right: var(--sizing-m);
       white-space: nowrap;
     }
 
-    .story-line {
-      flex-grow: 1;
-      height: 1px;
-      border-top: 1px dashed var(--color-text-muted);
-      margin: 0 var(--s0);
+    .story-card hr {
+      display: none;
     }
 
-    .story-date {
-      font-size: var(--s-1);
-      color: var(--color-text-muted);
+    .story-card time {
+      font-size: var(--type-s);
+      color: var(--color-text-secondary);
       white-space: nowrap;
     }
 
     .story-description {
-      font-size: var(--text-xs                                                  aasazaaā);
+      font-size: var(--type-s);
       color: var(--color-text-alt);
       margin: 0;
-      padding-top: var(--s1);
-      padding-left: var(--s1);
-      margin-bottom: var(--s1);
+      padding-top: var(--sizing-m);
+      padding-left: var(--sizing-m);
+      margin-bottom: var(--sizing-m);
     }
 
     @media (max-width: 768px) {a
@@ -176,7 +172,7 @@ const sortedTags = Object.entries(tagCounts)
         width: 100%;
         white-space: normal;
         padding-right: 0;
-        margin-bottom: var(--s-2);
+        margin-bottom: var(--spacing-sm);
       }
       
       .story-line {
